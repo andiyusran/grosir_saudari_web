@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <?php
     session_start();
@@ -14,6 +15,7 @@
     <script type="text/javascript" src="../assets/js/bootstrap.js"></script>
     <script type="text/javascript" src="../assets/js/jquery-ui/jquery-ui.js"></script>
 </head>
+
 <body>
     <div class="navbar navbar-default">
         <div class="container-fluid">
@@ -45,10 +47,10 @@
                 </div>
                 <div class="modal-body">
                     <?php
-                    $periksa=mysqli_query($konek, "select * from barang where jumlah <=3");
-                    while($q=mysqli_fetch_array($periksa)){
-                        if($q['jumlah']<=3){
-                            echo "<div style='padding:5px' class='alert alert-warning'><span class='glyphicon glyphicon-info-sign'></span> Stock <a style='color:red'>". $q['nama']."</a> yang tersisa sudah kurang dari 3. silahkan pesan lagi</div>";
+                    $periksa = mysqli_query($konek, "select * from barang where jumlah <=3");
+                    while ($q = mysqli_fetch_array($periksa)) {
+                        if ($q['jumlah'] <= 3) {
+                            echo "<div style='padding:5px' class='alert alert-warning'><span class='glyphicon glyphicon-info-sign'></span> Stock <a style='color:red'>" . $q['nama'] . "</a> yang tersisa sudah kurang dari 3. silahkan pesan lagi</div>";
                         }
                     }
                     ?>
@@ -63,17 +65,17 @@
     <div class="col-md-2">
         <div class="row">
             <?php
-            $use=$_SESSION['username'];
-            $fo=mysqli_query($konek, "select foto from admin where username='$use'");
-            while($f=mysqli_fetch_array($fo)){
-                ?>
+            $use = $_SESSION['username'];
+            $fo = mysqli_query($konek, "select foto from admin where username='$use'");
+            while ($f = mysqli_fetch_array($fo)) {
+            ?>
 
                 <div class="col=xs=6 col-md-12">
                     <a class="thumbnail">
                         <img class="img-responsive" src="foto/<?php echo $f['foto']; ?>">
                     </a>
                 </div>
-                <?php
+            <?php
             }
             ?>
         </div>
@@ -81,7 +83,7 @@
         <div class="row"></div>
         <ul class="nav nav-pills nav-stacked">
             <li class="active"><a href="index.php"><span class="glyphicon glyphicon-home"></span> Dashboard</a></li>
-            <li><a href="barang.php"><span class="glyphicon glyphicon-briefcase"></span> Data Barang</a></li>
+            <li><a href="barang_mainmenu.php"><span class="glyphicon glyphicon-briefcase"></span> Data Barang</a></li>
             <li><a href="barang_laku.php"><span class="glyphicon glyphicon-briefcase"></span> Entry Penjualan</a></li>
             <li><a href="ganti_foto.php"><span class="glyphicon glyphicon-picture"></span> Ganti Foto</a></li>
             <li><a href="ganti_pass.php"><span class="glyphicon glyphicon-lock"></span> Ganti Password</a></li>
